@@ -21,13 +21,13 @@ test.after.always('rename .git folders', () => {
 });
 
 test('check if the given directory is the branch master', (t) => {
-  t.is(gitRoot(path.join(fixtures, 'master')), path.join(fixtures, 'master'));
+  t.is(path.normalize(gitRoot(path.join(fixtures, 'master'))), path.normalize(path.join(fixtures, 'master')));
 });
 
 test('check if the given directory is the branch feat/test', (t) => {
-  t.is(gitRoot(path.join(fixtures, 'feat_test')), path.join(fixtures, 'feat_test'));
-  t.is(gitRoot(path.join(fixtures, 'feat_test', 'subdir')), path.join(fixtures, 'feat_test'));
-  t.is(gitRoot(path.join(fixtures, 'feat_test', 'subdir', 'subsubdir')), path.join(fixtures, 'feat_test'));
+  t.is(path.normalize(gitRoot(path.join(fixtures, 'feat_test'))), path.normalize(path.join(fixtures, 'feat_test')));
+  t.is(path.normalize(gitRoot(path.join(fixtures, 'feat_test', 'subdir'))), path.normalize(path.join(fixtures, 'feat_test')));
+  t.is(path.normalize(gitRoot(path.join(fixtures, 'feat_test', 'subdir', 'subsubdir'))), path.normalize(path.join(fixtures, 'feat_test')));
 });
 
 test('check the branch name of the home dir', (t) => {
