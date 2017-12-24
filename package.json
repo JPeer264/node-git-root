@@ -1,6 +1,6 @@
 {
   "name": "git-root",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A tool to get the git root path",
   "main": "build.js",
   "scripts": {
