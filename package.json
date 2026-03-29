@@ -44,8 +44,7 @@
   },
   "homepage": "https://github.com/JPeer264/node-git-root#readme",
   "dependencies": {
-    "execa": "^0.8.0",
-    "is-git-repository": "^1.1.1"
+    "execa": "^0.8.0"
   },
   "devDependencies": {
     "ava": "^0.24.0",

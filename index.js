@@ -1,24 +1,12 @@
-import { platform } from 'os';
+import path from 'path';
 import execa from 'execa';
-import isGit from 'is-git-repository';
 
 const cwd = process.cwd();
 
 const isGitAdded = (altPath = cwd) => {
-  if (!isGit(altPath)) {
-    return '';
-  }
-
   try {
-    let cmd = '';
-
-    if (platform() === 'win32') {
-      cmd = `pushd ${altPath} & git rev-parse --show-toplevel `;
-    } else {
-      cmd = `(cd ${altPath} ; git rev-parse --show-toplevel )`;
-    }
-
-    const { stdout } = execa.shellSync(cmd);
+    const resolvedPath = path.resolve(altPath);
+    const { stdout } = execa.sync('git', ['rev-parse', '--show-toplevel'], { cwd: resolvedPath });
 
     return stdout;
   } catch (e) {
